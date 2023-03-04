@@ -24,6 +24,10 @@ import com.montanha.gerenciador.services.exceptions.ViagemServiceException;
 
 import static java.lang.String.format;
 
+//@Service conta para o springer que esse é de serviço
+//o serviço que processa a regra de négocio
+//não deve acessar o banco de dados
+//ele irá chamar a camada do repositorio
 @Service
 public class ViagemServices {
 

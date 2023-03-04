@@ -26,18 +26,24 @@ import com.montanha.gerenciador.services.ViagemServices;
 
 import io.swagger.annotations.ApiOperation;
 
+//@RestController vc esta dizendo para o spring que é essa classe é um controller
 @RestController
 @Api("GerenciadorViagensController")
 public class GerenciadorViagemController {
 
+	//@Autowired para vc não precisar ficar instanciando as coisas
 	@Autowired
 	private ViagemServices viagemService;
 
+	//responsavel por falar qual é a descrição no swagger a legenda
 	@ApiOperation(value = "Cadastra uma viagem")
-	@PreAuthorize("hasAnyRole('ADMIN')")	
+	@PreAuthorize("hasAnyRole('ADMIN')")
+//@RequestMapping - value= uri method é o Post
 	@RequestMapping(value = "/v1/viagens", method = RequestMethod.POST, produces = "application/json" )
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
+//@RequestBody conta quem é o paramentro que a gente envia
+//@RequestHeader identificamos que é um header
 	public ResponseEntity<Response<Viagem>> cadastrar(@Valid @RequestBody ViagemDto viagemDto, @RequestHeader String Authorization, BindingResult result) {
 
 		// Não devemos expor entidades na resposta.
@@ -128,3 +134,13 @@ public class GerenciadorViagemController {
 	
 
 }
+
+
+//Controller
+//é a porta de entrada, ele quem intercepta a request
+//Não deve ter regra de negocio
+//Ele ira chamar a camada de serviço
+//Anotações importantes: @RequestMapping(value e method) - faz o mapeamento
+//@RequestBody
+//@RequestHeader
+//@ApiOperation -

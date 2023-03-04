@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
 import io.swagger.annotations.ApiModelProperty;
 
+//identificado como uma entidade
 @Entity
 @Component
 @Table(name = "viagem")

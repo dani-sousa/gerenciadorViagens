@@ -8,12 +8,13 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
+//Serializable que dizer que o objeto será transformado em um objeto java
 public class ViagemDto implements Serializable {
 
 	private static final long serialVersionUID = -8105241933692707649L;
 
 
-
+//@ApiModelProperty o que for passado no value é aqui que é informado a legenda
 	@ApiModelProperty(value = "Local de destino da viagem")
 	private String localDeDestino;
 

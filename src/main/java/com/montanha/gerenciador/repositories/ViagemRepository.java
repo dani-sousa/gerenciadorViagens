@@ -7,6 +7,7 @@ import com.montanha.gerenciador.entities.Viagem;
 
 import java.util.List;
 
+//o repositório conversa com o banco de dados
 @Repository
 public interface ViagemRepository extends JpaRepository<Viagem, Long> {
 
